@@ -1,0 +1,28 @@
+source: 
+https://wiki.jenkins.io/display/JENKINS/Monitoring+Scripts
+https://wiki.jenkins.io/display/JENKINS/Jenkins+Script+Console
+
+Run scripts from master Script Console on agents
+------------------------------------------------
+It's also possible to run scripts from the master Script Console on individual agents.  The following script is an example running a script on agents from the master Script Console.
+
+Script executes code on agent from Master Script Console
+
+>>>>>
+import hudson.util.RemotingDiagnostics
+import jenkins.model.Jenkins
+ 
+String agent_name = 'your agent name'
+//groovy script you want executed on an agent
+groovy_script = '''
+println System.getenv("PATH")
+println "uname -a".execute().text
+'''.trim()
+ 
+String result
+Jenkins.instance.slaves.find { agent ->
+    agent.name == agent_name
+}.with { agent ->
+    result = RemotingDiagnostics.executeGroovy(groovy_script, agent.channel)
+}
+println result
