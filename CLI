@@ -1,0 +1,4 @@
+java -jar jenkins-cli.jar -s $JENKINS_URL -auth username:password list-jobs
+---------------------------------------------------------------------------
+jenkins-cli.jar: which is to be downloaded from the jenkins server gui
+$JENKINS_URL: jenkins server url
