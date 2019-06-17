@@ -1,0 +1,2 @@
+1) sonarlint: ( sonarqube integration with eclipse is present in this video )
+source: https://www.youtube.com/watch?v=5A5LGjN3PE0
