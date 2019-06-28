@@ -1,0 +1,38 @@
+CI/CD Pipeline script
+=====================
+reference job(ondot): https://ods-jenkins.internal.ondotsystems.com/view/DCS-CICD/job/dcs-accountverification/
+platform: DCS
+module: dcs-accountverification
+README.md:
+  Reference Microservice
+Spring Boot Application
+Docker Definition based on the Base containers
+Helm Charts
+This Sample reference application follows 12 factor app design principles and follows best practises on containers
+
+base images
+small container images
+Tracing support
+Console Logging
+Swagger Support
+Graceful Shutdown
+prerequisites
+ Java 
+ Maven 
+      
+ Docker
+ helm
+ python-yq
+How do i build an Docker Image
+ $ make docker
+How do i run docker image locally
+$ docker run -d  -p8080:8080 <imageName>:<imageTag>
+How do i just run the springboot-app without docker
+  $ ./mvnw clean package
+  $ cd target
+  $ java -jar target/microservice-0.0.1.jar
+How do i access the generated swagger json
+curl http://localhost:8080/v2/api-docs
+Where is my health-check endpoint
+http://localhost:8080/actuator/health
+----------------------------------------------------------------X------------------------------------------------------------------------
